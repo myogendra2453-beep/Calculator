@@ -82,6 +82,9 @@ input[type="radio"] {
 .popup-content {
   scrollbar-width: none;
 }
+.display-screen::-webkit-scrollbar {
+  display: none;
+}
 button {
   all: unset; /* removes everything — font, padding, borders, bg */
   cursor: pointer; /* make it clickable again */
@@ -226,7 +229,7 @@ input[type="text"]:focus {
   font-weight: 600;
   color: var(--color-keys);
   padding: 5px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 /* ==================== NUM-PAD ==================== */
