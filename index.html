@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <title>calculator</title>
+  </head>
+  <body>
+    <section class="canvas">
+      <div class="calculator-canvas">
+        <div class="calculator">
+          <div class="toggle-container">
+            <h3 class="title">Calc</h3>
+            <h3 class="toggle-numbers">1 2 3</h3>
+            <div class="toggle-slide">
+              <input
+                type="radio"
+                name="theme"
+                class="radio-button radio-1"
+                checked
+              />
+              <input type="radio" name="theme" class="radio-button radio-2" />
+              <input type="radio" name="theme" class="radio-button radio-3" />
+            </div>
+          </div>
+          <div class="display">
+            <input
+              type="text"
+              id="numInput"
+              placeholder="enter number"
+              class="display-input"
+              readonly
+            />
+            <div class="display-screen">Calc 1.0</div>
+          </div>
+          <div class="numpad">
+            <button class="key key-7">7</button>
+            <button class="key key-8">8</button>
+            <button class="key key-9">9</button>
+            <button class="key key-del">DEL</button>
+            <button class="key key-4">4</button>
+            <button class="key key-5">5</button>
+            <button class="key key-6">6</button>
+            <button class="key key-plus">+</button>
+            <button class="key key-1">1</button>
+            <button class="key key-2">2</button>
+            <button class="key key-3">3</button>
+            <button class="key key-minus">-</button>
+            <button class="key key-dott">.</button>
+            <button class="key key-0">0</button>
+            <button class="key key-divide">/</button>
+            <button class="key key-multiplyy">x</button>
+            <button class="key key-reset">RESET</button>
+            <button class="key key-equal">=</button>
+          </div>
+        </div>
+        <i id="aboutBtn" class="fa-solid fa-user-secret"></i>
+        <div class="about-popup">
+          <div class="popup-content">
+            <h2>VERSION</h2>
+            <p>1.0.0</p>
+
+            <h2 class="outline">ABOUT</h2>
+            <p>
+              Welcome...a calculator in 2025, i know it's a pretty WILD decision
+              <br />
+              as apparently phones and brains don’t exist HAHA<br />
+              I built this with pure love, zero sleep, max caffeine,<br />
+              and a tiny sprinkle of “wooork brrruh wooork”<br />
+              so never judge ts,vibe ts
+            </p>
+
+            <h2>ME</h2>
+            <p>
+              Yogi™ : Professional Developer, Professional Designer,Professional
+              Editor, Professional Coder, Figma, AE, Blender, PS, Premere Pro
+              <br />
+              I coded this while <i>vibing, blinking, breathing</i><br />
+              and questioning all my life choices <br />
+              If it works, clap for me. If it doesn’t, blame JavaScript bro 🗿
+            </p>
+
+            <h2>I KNOW</h2>
+            <p>
+              Broooow… if you've found any kinda bugs, glitches, lag, stretching
+              UI,<br />
+              exploding layout, numbers flying to space…<br />
+              **why in the WORLD would someone use a simple Calci like that
+              ????**<br />
+              It’s just a simple newbie CALCULATOR dawg… go easy on him<br />
+              If it’s not responsive on your device…<br />
+              **buy a laptop bro** or get a **bigger screen** WTH<br />
+              I’m a rookie dev man… you better chill before this whole UI just
+              disappears 💀
+            </p>
+            <h2>UPDATES</h2>
+            <p>Will come..</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
