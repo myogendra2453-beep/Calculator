@@ -1,0 +1,456 @@
+:root {
+  --color-background: #3b4664;
+  --color-numpad: #252d44;
+  --color-display: #181f32;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #252c45;
+  --color-keys-outline: #b2a295;
+}
+.theme-green {
+  --color-background: #305a3b;
+  --color-numpad: #1e4125;
+  --color-display: #122418;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #1e3a1e;
+}
+.theme-sakura {
+  --color-background: #875c77;
+  --color-numpad: #66485b;
+  --color-display: #3d1f2f;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #563448;
+}
+.theme-brown {
+  --color-background: #5b3b2c;
+  --color-numpad: #432b21;
+  --color-display: #2b1b13;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #3c2620;
+}
+.theme-plum {
+  --color-background: #4f2b6b;
+  --color-numpad: #3a1f4b;
+  --color-display: #240d2e;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #341a44;
+}
+.theme-black {
+  --color-background: #202020;
+  --color-numpad: #181818;
+  --color-display: #0c0c0c;
+  --color-keys: #eae3db;
+  --color-sideKeys: #647299;
+  --color-enter: #d13f30;
+  --color-toggle: #141414;
+}
+
+html {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+  font-family: "poppins";
+}
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* font-weight: 800; */
+  font-size: 2rem;
+}
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.popup-content::-webkit-scrollbar {
+  display: none;
+}
+.popup-content {
+  scrollbar-width: none;
+}
+button {
+  all: unset; /* removes everything — font, padding, borders, bg */
+  cursor: pointer; /* make it clickable again */
+  box-sizing: border-box; /* keep layout predictable */
+}
+button:focus {
+  outline: 5px solid var(--color-background); /* the glowing border */
+}
+input[type="radio"]:focus {
+  outline: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+/* ==================== BASE ==================== */
+
+.canvas,
+.calculator-canvas,
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.canvas {
+  position: relative;
+}
+.calculator-canvas {
+  background-color: var(--color-background);
+  width: 1440px;
+  height: 900px;
+  position: relative;
+}
+.calculator {
+  width: 540px;
+  height: 690px;
+}
+/* ==================== TOGGLE ==================== */
+.fa-user-secret {
+  font-size: 4rem;
+  color: var(--color-keys);
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
+  cursor: pointer;
+}
+
+.about-popup {
+  position: absolute;
+  height: 85%;
+  width: 80%;
+  background-color: var(--color-numpad);
+  border-radius: 1rem;
+  display: none;
+}
+.popup-content {
+  height: 100%;
+  overflow: auto;
+  padding: 2rem;
+}
+.about-popup.active {
+  display: block;
+  visibility: visible;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ==================== TOGGLE ==================== */
+
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+.title,
+.toggle-numbers {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+.toggle-slide {
+  background-color: var(--color-toggle);
+  width: 71px;
+  height: 26px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 19px;
+}
+.radio-button {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* border: 1px solid var(--color-display); */
+  transition: all 0.2s ease;
+}
+.radio-button:checked {
+  background-color: var(--color-enter);
+}
+
+.toggle-numbers {
+  position: absolute;
+  right: 0;
+  bottom: 25px;
+  letter-spacing: 5.5px;
+  font-size: 1.8rem;
+}
+.toggle-numbers.show {
+  display: none;
+  transition: all ease 1s;
+}
+/* ==================== DISPLAY ==================== */
+
+.display {
+  background-color: var(--color-display);
+  width: 540px;
+  height: 128px;
+  margin-top: 25px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "display", "input";
+}
+.display-input {
+  border-radius: 0 0 10px 10px;
+  background-color: var(--color-display);
+  border: none;
+  color: var(--color-keys);
+  grid-row: 2;
+
+  font-size: 3rem;
+  border-top: 1px solid var(--color-background);
+  text-align: right;
+}
+.display-screen {
+  grid-row: 1;
+  align-content: center;
+  justify-items: center;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--color-keys);
+  padding: 5px;
+  overflow: hidden;
+}
+
+/* ==================== NUM-PAD ==================== */
+
+.numpad {
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  grid-template-areas:
+    "seven  eight  nine    del"
+    "four   five   six     plus"
+    "one    two    three   minus"
+    "dott    zeroo   divide  multiply"
+    "reset  reset  equal   equal";
+}
+.key-7 {
+  grid-area: seven;
+}
+.key-8 {
+  grid-area: eight;
+}
+.key-9 {
+  grid-area: nine;
+}
+.key-del {
+  grid-area: del;
+}
+
+.key-4 {
+  grid-area: four;
+}
+.key-5 {
+  grid-area: five;
+}
+.key-6 {
+  grid-area: six;
+}
+.key-plus {
+  grid-area: plus;
+}
+
+.key-1 {
+  grid-area: one;
+}
+.key-2 {
+  grid-area: two;
+}
+.key-3 {
+  grid-area: three;
+}
+.key-minus {
+  grid-area: minus;
+}
+
+.key-dot {
+  grid-area: dott;
+}
+.key-0 {
+  grid-area: zeroo;
+}
+.key-divide {
+  grid-area: divide;
+}
+.key-multiply {
+  grid-area: multiplyy;
+}
+
+.key-reset {
+  grid-area: reset;
+}
+.key-equal {
+  grid-area: equal;
+}
+
+.numpad {
+  background-color: var(--color-numpad);
+  width: 540px;
+  height: 480px;
+  border-radius: 5px;
+  gap: 24px;
+  padding: 34px;
+}
+
+.key {
+  background-color: var(--color-keys);
+  color: var(--color-background);
+  font-family: "poppins";
+  font-size: 2.5rem;
+  font-weight: 700;
+  border-bottom: 1rem solid var(--color-keys-outline);
+  border-radius: 5px;
+  transition: all ease;
+}
+.key:active {
+  transform: translateY(3px);
+}
+.key-del,
+.key-reset {
+  background-color: var(--color-sideKeys);
+  color: var(--color-keys);
+  border-bottom: 1rem solid #414e71;
+}
+.key-equal {
+  background-color: var(--color-enter);
+  color: var(--color-keys);
+  border-bottom: 1rem solid #96271c;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .calculator {
+    width: 10%;
+    height: auto;
+  }
+  .fa-user-secret {
+    font-size: 2rem !important;
+    color: var(--color-keys);
+    position: absolute;
+    right: 3%;
+    bottom: 10%;
+    cursor: pointer;
+  }
+  .popup-content {
+    font-size: 1.5rem;
+  }
+  .display {
+    width: 100%;
+    height: 110px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .display-screen {
+    font-size: 2rem;
+    width: 34.5vh;
+  }
+  .display-input {
+    font-size: 2rem;
+    width: 34.5vh;
+  }
+  .numpad {
+    width: 300px;
+    height: 110px;
+    gap: 12px;
+    padding: 15px;
+  }
+  .key {
+    font-size: 1.8rem;
+    border-bottom-width: 0.6rem;
+  }
+  .toggle-slide {
+    width: 55px;
+    height: 20px;
+  }
+  .radio-button {
+    width: 14px;
+    height: 14px;
+  }
+  .toggle-numbers {
+    bottom: 20px;
+    letter-spacing: 3px;
+    font-size: 1.8rem;
+  }
+}
+
+/* 💻 Tablets */
+@media (max-width: 1024px) {
+  .calculator {
+    width: 80%;
+  }
+  .fa-user-secret {
+    font-size: 3rem;
+  }
+  .display {
+    width: 100%;
+    height: 150px;
+    font-size: 1.8rem;
+  }
+  .display-screen {
+    font-size: 4rem;
+  }
+  .display-input {
+    font-size: 2.6rem;
+  }
+  .numpad {
+    width: 100%;
+    height: 500px;
+    gap: 18px;
+    padding: 25px;
+  }
+  .key {
+    font-size: 2rem;
+  }
+}
+
+/* 🖥️ Large Screens */
+@media (min-width: 1440px) {
+  .calculator-canvas {
+    width: 1440px;
+    height: 900px;
+    margin: 0 auto;
+  }
+  .calculator {
+    width: 540px;
+    height: 690px;
+  }
+  .display {
+    width: 540px;
+    height: 128px;
+  }
+  .display-screen {
+    font-size: 5rem;
+  }
+  .display-input {
+    font-size: 3rem;
+  }
+  .numpad {
+    width: 540px;
+    height: 480px;
+    gap: 24px;
+    padding: 34px;
+  }
+  .key {
+    font-size: 2.5rem;
+  }
+}
